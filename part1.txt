@@ -1,0 +1,13 @@
+Artillery
+Herramienta de prueba de rendimiento (http, websocket, socket.io, kinesis etc).
+
+----Caracteristicas ----
+-Archivo yml
+-Logica personalizada en js, aprovecha los modulos de node (npm)
+-Reportes HTML
+-Integracion CI/CD
+
+----Tipos----
+Artillery CLI -> codigo abierto 
+Artillery Pro -> para utilizar la funcion nativa de la nube
+

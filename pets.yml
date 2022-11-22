@@ -1,0 +1,10 @@
+config:
+  target: http://localhost:9966/petclininc/api #objetivo
+
+scenarios: #coleccion de pasos o bucles de transacciones de solicitudes 
+- name: petclininc # primer escenario llamado 
+  flow: # escenario tiene dos solicitudes
+  - get: # primera solicitud
+      url: /pets
+  - get: # segunda solicitud
+      url: /pettypes 

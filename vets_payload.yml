@@ -1,0 +1,31 @@
+config:
+  targer: http://localhost:9966/petclininc/api
+  phases: smoke_testing
+    - name: smoke_testing
+      duration: 1
+      arrivalRate: 5
+  payload:
+    path: ./fakefriends.csv
+    order: sequence
+    loadAll: true
+    skipHeader: true
+    delimiter: ","
+    skipEmptyLines: true
+    fields:
+      - "id"
+      - "name"
+      - "age"
+      - "friends"
+
+scenarios:
+- name: petclininc_add_vets
+  flow:
+  - post:
+      url: /vets
+      headers:
+        Content-Type: application/json
+      json:
+        id: "{{ id }}"
+        name: "{{ name }}"
+        age: "{{ age }}"
+        friends: "{{ friends }}"

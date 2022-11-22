@@ -1,0 +1,29 @@
+config:
+  target: http://localhost:9966/petclininc/api
+  phases:
+    # Fase de pausa: sin usuarios virtuales durante 60 segundos
+    - name: nothing
+      pause: 10
+
+    # Esto injecta 10 usuarios virtuales cada segundo durante 60 segundos
+    # - name: constant_arrival_rate
+    #   duration: 60
+    #   arrivalRate: 10
+
+    # Esta rampa sube a los usuarios virtuales de 10 a 50 en 60 segundos
+    # - name: rampup_rate
+    #   duration: 60
+    #   arrivalRate: 10
+    #   rampTo: 50
+
+      # Numero fijo de llegadas por segundo
+      # Estp creara 120 usuarios virtuales en 1 minuto
+    # - name: fixed_arrivals
+    #   duration: 60
+    #   arrivalCount: 120
+
+scenarios:
+- name: petclinic
+  flow:
+  - get:
+    url: /pets 
