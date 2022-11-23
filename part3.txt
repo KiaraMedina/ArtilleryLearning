@@ -1,0 +1,9 @@
+====== Modelo de carga de trabajo ======
+como querer injectar una carga
+
+====types ====
+
+Duration -> tasa de llegada constante
+Ramp-up -> aumento de tasa de llegada
+Recuento fijo de la tasa de llegada a lo largo del tiempo
+Pausar -> sin usuarios virtuales a lo largo del tiempo

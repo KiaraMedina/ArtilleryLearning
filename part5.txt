@@ -1,0 +1,12 @@
+==========Correlation==========
+- Manejo de datos dinamicos en la respuesta
+- Obtener respuesta usando regex, almacene en una variable y pase a las solicitudes posteriores
+- Tema favorito en el rendimiento
+
+========Capture=========
+Con el metodo capture podemos aprovechar:
+- JsonPath
+- XPath
+- Regular Expresions
+- `selector`  
+- {{ firsName}}

@@ -1,0 +1,54 @@
+config:
+  target: https://jsonplaceholder.typicode.com
+  plugins:
+    expect: {}
+  
+  environments:
+    load:  
+      phases:
+        - name: smoke_load_testing
+          duration: 5
+          arrivalRate: 10
+      
+    functional:
+      phases:
+        - name: func_smoke_testing
+          duration: 1
+          arrivalCount: 1
+
+  payload:
+    path: ./datapayload.csv
+    order: sequence           # default: random
+    loadAll: true             
+    skipHeader: true          # default: false  
+    delimiter: ","            # default: ,
+    skipEmptyLines: true      # default: true
+    fields:
+      - "userId"
+      - "id"
+      - "title"
+      - "completed"
+
+scenarios:
+- name: petclinic_add_vets
+  flow:
+  - post:
+      url: /todos
+      headers:
+        Content-Type: application/json
+      json:
+        userId: "{{ userId }}"
+        id: "{{ id }}"
+        title: "{{ title }}"
+        completed: "{{ completed }}"
+      capture:
+        json: "$.userId"
+        as: "userId"
+
+      expect:
+        - matchesRegexp: .+
+  - get:
+      url: "/todos/{{ userId }}"     
+      expect:
+      - statusCode: 200
+      - contentType: json

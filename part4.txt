@@ -1,0 +1,5 @@
+========Payload (carga util)=========
+- Prametrizacion de datos en artillery
+- Datos dinamicos para alimentar las solicitudes
+
+

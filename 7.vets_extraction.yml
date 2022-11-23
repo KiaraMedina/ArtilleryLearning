@@ -1,8 +1,6 @@
 config:
-  target: http://localhost:9966/petclinic/api
-  plugins:
-    expect: {}
-  
+  target: https://jsonplaceholder.typicode.com
+
   environments:
     load:  
       phases:
@@ -17,41 +15,36 @@ config:
           arrivalCount: 1
 
   payload:
-    path: ./test-data/vets-data.csv
+    path: ./datapayload.csv
     order: sequence           # default: random
     loadAll: true             
     skipHeader: true          # default: false  
     delimiter: ","            # default: ,
     skipEmptyLines: true      # default: true
     fields:
-      - "firstName"
-      - "lastName"
+      - "userId"
       - "id"
-      - "specialtyName"
+      - "title"
+      - "completed"
 
 scenarios:
 - name: petclinic_add_vets
   flow:
   - post:
-      url: /vets
+      url: /todos
       headers:
         Content-Type: application/json
       json:
-        firstName: "{{ firstName }}"
-        lastName: "{{ lastName }}"
+        userId: "{{ userId }}"
         id: "{{ id }}"
-        specialties:
-          -
-            id: "{{ id }}"
-            name: "{{ specialtyName }}"
+        title: "{{ title }}"
+        completed: "{{ completed }}"
       capture:
-        json: "$.id"
-        as: "id"
+        json: "$.userId"
+        as: "userId"
 
-      expect:
-        - matchesRegexp: .+
   - get:
-      url: "/vets/{{ id }}"     
+      url: "/todos/{{ userId }}"     
       expect:
       - statusCode: 200
       - contentType: json

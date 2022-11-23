@@ -1,0 +1,18 @@
+Probe Commands
+
+artillery probe --help
+artillery probe https://jsonplaceholder.typicode.com/todos
+artillery probe https://jsonplaceholder.typicode.com/todos -b -p
+artillery probe https://jsonplaceholder.typicode.com/todos --jmespath='[*].title'
+
+artillery probe \
+  post \
+   https://jsonplaceholder.typicode.com/todoss \
+  -v --json "{  
+    userId,id,title,completed
+   userId: 25,  
+   id: 300,  
+   title: La caperucita roja,  
+   completed: true, 
+ }" \
+ -e "statusCode: 200"

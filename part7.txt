@@ -1,0 +1,11 @@
+======Environments====
+ - Permite la reutilizacion
+ - Algunos scripts pata pruebas funcionales y pruebas de rendimiento
+
+====== HTML Reporting ========
+- Implica un proceso de dos pasos
+- Genera un Json
+- Luego convierte el json a HTML
+    - artillery run --output loadtest-result.json pets.yml
+    - artillery report loadtest-result.json
+    

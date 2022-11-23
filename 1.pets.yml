@@ -8,3 +8,5 @@ scenarios: #coleccion de pasos o bucles de transacciones de solicitudes
           url: /200
       - get: # segunda solicitud
           url: /100
+      - post: # segunda solicitud
+          url: /100

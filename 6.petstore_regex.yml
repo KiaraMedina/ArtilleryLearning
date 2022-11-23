@@ -1,11 +1,11 @@
 config:
-  target: https://jpetstore-qainsights.cloud.okteto.net/jpetstore
+  target: https://http.cat/
   
 scenarios:
 - name: example_dot_com
   flow:
   - get:
-      url: /actions/Catalog.action?viewCategory=&categoryId=FISH
+      url: /html/body/div[1]/div/ul/li[1]/div
       capture:
         regexp: "<a href=\"(.+?)\">(.+?)<\/a>"
         as: "extract_href"

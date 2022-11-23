@@ -1,0 +1,12 @@
+===== eXPECTATIONS =====
+- Complementos via plugins
+- npm install artillery-plugin-expect 
+- DEBUG=plugin:expect artillery run file.yml
+
+- statusCode
+- contentType
+- hasProperty and not hasProperty
+- equals
+- hasHeader
+- headerEquals
+- matchesRegexp

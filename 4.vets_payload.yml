@@ -1,0 +1,31 @@
+config:
+  target: https://jsonplaceholder.typicode.com
+  phases:
+    - name: smoke_testing
+      duration: 1
+      arrivalRate: 5
+  payload:
+    path: ./datapayload.csv
+    order: sequence           # default: random
+    loadAll: true             
+    skipHeader: true          # default: false  
+    delimiter: ","            # default: ,
+    skipEmptyLines: true      # default: true
+    fields:
+      - "userId"
+      - "id"
+      - "title"
+      - "completed"
+
+scenarios:
+- name: petclinic_add_vets
+  flow:
+  - post:
+      url: /todos
+      headers:
+        Content-Type: application/json
+      json:
+        userId: "{{ userId }}"
+        id: "{{ id }}"
+        title: "{{ title }}"
+        completed: "{{ completed }}"
